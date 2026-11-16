@@ -15,6 +15,7 @@ jobs:
         run: |
           git config user.name "wyze69-sys"
           git config user.email "wyze69-sys@users.noreply.github.com"
+          git rm main.py
           git mv main9.py main.py
           rm .github/workflows/rename.yml
           git add -A
