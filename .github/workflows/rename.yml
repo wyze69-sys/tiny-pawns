@@ -1,0 +1,22 @@
+name: Rename main9 to main
+on:
+  push:
+    paths:
+      - .github/workflows/rename.yml
+  workflow_dispatch:
+jobs:
+  rename:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rename main9.py to main.py
+        run: |
+          git config user.name "wyze69-sys"
+          git config user.email "wyze69-sys@users.noreply.github.com"
+          git mv main9.py main.py
+          rm .github/workflows/rename.yml
+          git add -A
+          git commit -m "Tiny Pawns v9 engine"
+          git push
